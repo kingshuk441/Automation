@@ -316,7 +316,7 @@ class ManageUsersPage(BasePage):
         res = True
         if not ("manage-users" in currUrl):
             if "login" in currUrl:
-                loginPage = LoginPage.LoginPage(self.driver)
+                loginPage = LoginPage(self.driver)
                 loginPage.enterCredentials(uName, pwd)
                 Logger.info(f"Enter details for Login As userName : {uName}")
             time.sleep(2)
@@ -335,7 +335,7 @@ class ManageUsersPage(BasePage):
         res = True
         if not ("manage-users" in currUrl):
             if "login" in currUrl:
-                loginPage = LoginPage.LoginPage(self.driver)
+                loginPage = LoginPage(self.driver)
                 loginPage.enterCredentials(uName, pwd)
                 Logger.info(f"Enter details for Login As userName : {uName}")
             time.sleep(2)

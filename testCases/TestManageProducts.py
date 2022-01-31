@@ -3,11 +3,7 @@ from random import randrange
 
 import pytest
 
-from Pages.ManageProductsPage import ManageProductsPage
-from Utilities import Logger
-from Utilities.utilityFn import Utility
-from dataSet.ManageProductsData import ManageProductsData
-from testCases.ManageProducts import ManageProductsUtils
+
 
 
 @pytest.mark.usefixtures("initial")
@@ -121,7 +117,7 @@ class TestManageProducts:
         rows = ManageProductsUtils.getAllTableRows(manageProducts)
         self.noOfRows = len(rows)
         self.utils.getTableData(self.driver, self.tableColumns, self.tableDataMap, rows)
-        file = open("../output.json", "w")
+        file = open("output.json", "w")
         file.write(json.dumps(self.tableDataMap, indent=2))
         yield
         Logger.info(

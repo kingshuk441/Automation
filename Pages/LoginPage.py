@@ -4,7 +4,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
 from Pages.BasePage import BasePage
-from Utilities import Logger
 
 
 class LoginPage(BasePage):
