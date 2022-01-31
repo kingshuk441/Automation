@@ -505,38 +505,4 @@ class BasePage:
         else:
             return self.getIndex(hashSet, (idx + 1) % n, n)
 
-    def loginWithAdmin(self, manageUsers, uName='admin', pwd='admin'):
-        currUrl = self.currentUrl()
-        res = True
-        if not ("manage-users" in currUrl):
-            if "login" in currUrl:
 
-                loginPage = Pages.LoginPage.LoginPage(self.driver)
-                loginPage.enterCredentials(uName, pwd)
-                Logger.info(f"Enter details for Login As userName : {uName}")
-            time.sleep(2)
-            res = self.isElementPresent(manageUsers.addProduct)
-            manageUsers.getManageBtn().click()
-            Logger.info("Manage Button Clicked")
-            manageUsers.getUserOption().click()
-            Logger.info("Manage Users option clicked")
-            time.sleep(2)
-            currUrl = self.currentUrl()
-            Logger.info("Current Url is " + self.currentUrl())
-        return res and ("manage-users" in currUrl)
-
-    def loginWithNonAdmin(self, manageUsers, uName, pwd):
-        currUrl = self.currentUrl()
-        res = True
-        if not ("manage-users" in currUrl):
-            if "login" in currUrl:
-
-                loginPage = Pages.LoginPage.LoginPage(self.driver)
-                loginPage.enterCredentials(uName, pwd)
-                Logger.info(f"Enter details for Login As userName : {uName}")
-            time.sleep(2)
-            res = not self.isElementPresent(manageUsers.addProduct)
-            Logger.info(f"{res}")
-            currUrl = self.currentUrl()
-            Logger.info("Current Url is " + self.currentUrl())
-        return res and ("dashboard" in currUrl)
