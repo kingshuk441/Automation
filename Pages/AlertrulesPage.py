@@ -66,6 +66,7 @@ class AlertRulesPage(BasePage):
     # status_button = "((//div[@class='uwf-grid__main_table'])[1]//section/div[3]/div/div[2])[1]/uwf-toggle-button"
     # question = "(//div[@class='uwf-help-trigger type-gray'])[1]"
     # is it hovered //div[contains(@class,'uwf-help-trigger_tippy-visible')]
+    URL = "alert-rules"
 
     def __init__(self, driver):
         super().__init__(driver)

@@ -8,6 +8,9 @@ from Utilities import Logger
 
 
 class LoginPage(BasePage):
+    user = (By.XPATH, "//input[@id='user']")
+    pwd = (By.XPATH, "//input[@id='password']")
+    signin_button = (By.CSS_SELECTOR, "button[type='submit']")
     userName = (By.ID, 'user')
     password = (By.ID, "password")
     loginBtn = (By.CSS_SELECTOR, "button[type='submit']")
@@ -19,6 +22,11 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
+
+    def do_login(self, username, password):
+        self.do_send_keys(self.user, username)
+        self.do_send_keys(self.pwd, password)
+        self.do_click(self.signin_button)
 
     def getVersion(self):
         return self.driver.find_element(*LoginPage.version)

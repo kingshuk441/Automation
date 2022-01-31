@@ -9,22 +9,27 @@ from Pages.AlertsPage import AlertsPage
 from Utilities.BaseClass import BaseClass
 from Utilities.testData import TestData
 
-
+@pytest.mark.usefixtures("initial")
 class TestAlerts(BaseClass):
 
     def reuse(self):
+        '''
         self.loginPage = LoginPage(self.driver)
         self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+        '''
         self.driver.implicitly_wait(5)
         self.alerts_page = AlertsPage(self.driver)
         self.alerts_page.open_alerts()
 
     def test_alerts(self):
+        '''
         self.loginPage = LoginPage(self.driver)
         self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
         self.driver.implicitly_wait(5)
         self.alerts_page = AlertsPage(self.driver)
         self.alerts_page.open_alerts()
+        '''
+        self.reuse()
         self.alerts_page.get_list_elements()
 
     def test_no_alerts_found(self):
@@ -105,3 +110,12 @@ class TestAlerts(BaseClass):
     def test_button_click_archived_alert(self):
         self.reuse()
         assert self.alerts_page.button_click_archived_alert()
+
+    @pytest.fixture()
+    def initial(self, openBrowser):
+        self.driver = openBrowser
+        self.alerts_page = AlertsPage(self.driver)
+        if not self.alerts_page.urlPresent(self.alerts_page.URL):
+            self.loginPage = LoginPage(self.driver)
+            self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+            self.alerts_page.open_alerts()

@@ -33,6 +33,8 @@ class AlertsPage(BasePage):
 
     is_empty = "//div[contains(@class,'empty')]"
     is_wait = "//div[contains(@class,'unselectable clickable')]"
+    URL = "alerts"
+
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -41,6 +43,7 @@ class AlertsPage(BasePage):
         self.do_click(self.button_manage)
         self.do_click(self.button_alerts)
         time.sleep(2)
+
 
     def get_alerts_count(self):
         return self.get_total_count(self.text_total)

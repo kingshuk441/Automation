@@ -1,16 +1,23 @@
+import pytest
+
 from Pages.LoginPage import LoginPage
 from Pages.AlertrulesPage import AlertRulesPage
 from Utilities.BaseClass import BaseClass
 from Utilities.testData import TestData
 
-
+@pytest.mark.usefixtures("initial")
 class TestAlertsRules(BaseClass):
 
     def reuse(self):
         self.driver.implicitly_wait(15)
+        '''
         self.loginPage = LoginPage(self.driver)
-        self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+        # self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+        self.loginPage.do_login(TestData.USERNAME, TestData.PASSWORD)
 
+        self.alert_rule_page = AlertRulesPage(self.driver)
+        self.alert_rule_page.open_alert_rules()
+        '''
         self.alert_rule_page = AlertRulesPage(self.driver)
         self.alert_rule_page.open_alert_rules()
         # self.alert_rule_page.verify_its_that_page() # return list but in this case using for wait
@@ -45,7 +52,9 @@ class TestAlertsRules(BaseClass):
         self.driver.find_element(By.XPATH, "//div[(text()='Notification Off')]").click()'''
 
     def test_buttonStatus(self):
-        self.reuse()
+        #self.reuse()
+        self.alert_rule_page = AlertRulesPage(self.driver)
+        self.alert_rule_page.open_alert_rules()
         self.alert_rule_page.status_of_button()
 
     def test_buttonClickNotification(self):
@@ -179,3 +188,12 @@ class TestAlertsRules(BaseClass):
     def test_button_add_recipient_es(self):
         self.reuse()
         self.alert_rule_page.wait_till_page_load()
+
+    @pytest.fixture()
+    def initial(self, openBrowser):
+        self.driver = openBrowser
+        self.alert_rule_page = AlertRulesPage(self.driver)
+        if not self.alert_rule_page.urlPresent(self.alert_rule_page.URL):
+            self.loginPage = LoginPage(self.driver)
+            self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+            self.alert_rule_page.open_alert_rules()
