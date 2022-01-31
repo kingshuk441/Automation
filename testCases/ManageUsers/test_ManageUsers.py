@@ -29,6 +29,7 @@ class TestManageUsers(BaseClass):
     editFields = ManageUsersData.EDIT_USERS_FIELDS
     changePwdFields = ManageUsersData.CHANGE_PWD_USERS_FIELDS
 
+
     def test_checkURL(self, userName='admin', password='admin'):
         Logger.info(
             "==============================================================================================================\n")
@@ -84,7 +85,7 @@ class TestManageUsers(BaseClass):
         Logger.info(
             "==============================================================================================================\n")
         manageUsers = ManageUsersPage(self.driver)
-        manageUsers.selectAll(manageUsers)
+        manageUsers.selectAllCheckBox(manageUsers)
         rows = manageUsers.getAllTableRows(manageUsers)
         res = manageUsers.isAttrInAllElements('selected', 'class', rows)
         Logger.info(f"all rows are selected: {res}")
@@ -92,7 +93,7 @@ class TestManageUsers(BaseClass):
         isChecked = len(checkBoxes)
         res = res and isChecked == self.noOfRows
         Logger.info(f"all rows checkboxes are selected: {res}")
-        manageUsers.selectAll(manageUsers)
+        manageUsers.selectAllCheckBox(manageUsers)
         rows = manageUsers.getAllTableRows(manageUsers)
         res = res and not manageUsers.isAttrInAllElements(
             'selected', 'class', rows)
