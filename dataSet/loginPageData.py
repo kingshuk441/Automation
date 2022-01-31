@@ -1,0 +1,2 @@
+DDNI_VERSION = '4.1'
+RADIO_BUTTONS = ['LDAP', 'Local']
