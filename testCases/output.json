@@ -1,27 +1,22 @@
 {
   "User Name": [
-    "z2",
     "admin",
     "z1"
   ],
   "First Name": [
-    "defaultFN",
-    "updatedFN",
-    "updatez1"
+    "Admin",
+    "defaultFN"
   ],
   "Last Name": [
-    "defaultLN",
-    "upadatedLN",
-    "rweewrw"
+    "Admin",
+    "defaultLN"
   ],
   "Email": [
-    "d@d.com",
-    "update@test.com",
-    "xc@g.com"
+    "admin@admin.com",
+    "d@d.com"
   ],
   "Role": [
     "Admin",
-    "Admin",
-    "Admin"
+    "Read only"
   ]
 }

@@ -1109,4 +1109,56 @@
     "Read only",
     "Admin"
   ]
+}["z1", "defaultFN", "defaultLN", "d@d.com", "Read only", 123456, 123456]{
+  "User Name": [
+    "admin",
+    "z1",
+    "z1"
+  ],
+  "First Name": [
+    "Admin",
+    "defaultFN",
+    "defaultFN"
+  ],
+  "Last Name": [
+    "Admin",
+    "defaultLN",
+    "defaultLN"
+  ],
+  "Email": [
+    "admin@admin.com",
+    "d@d.com",
+    "d@d.com"
+  ],
+  "Role": [
+    "Admin",
+    "Read only",
+    "Read only"
+  ]
+}["z2", "defaultFN", "defaultLN", "d@d.com", "Admin", 123456, 123456]{
+  "User Name": [
+    "admin",
+    "z1",
+    "z2"
+  ],
+  "First Name": [
+    "Admin",
+    "defaultFN",
+    "defaultFN"
+  ],
+  "Last Name": [
+    "Admin",
+    "defaultLN",
+    "defaultLN"
+  ],
+  "Email": [
+    "admin@admin.com",
+    "d@d.com",
+    "d@d.com"
+  ],
+  "Role": [
+    "Admin",
+    "Read only",
+    "Admin"
+  ]
 }

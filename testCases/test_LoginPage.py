@@ -21,9 +21,9 @@ class TestLogin(BaseClass):
 
     def test_empty_Fields(self):
         loginPage = LoginPage(self.driver)
-        if self.util.checkEmptyInputFields(loginPage.getPassword()) or self.util.checkEmptyInputFields(
+        if loginPage.checkEmptyInputFields(loginPage.getPassword()) or loginPage.checkEmptyInputFields(
                 loginPage.getUserName()):
-            assert not self.util.checkActiveButton(loginPage.loginButton())
+            assert not loginPage.checkActiveButton(loginPage.loginButton())
 
     def test_fill_Credentials(self):
         loginPage = LoginPage(self.driver)
@@ -32,9 +32,9 @@ class TestLogin(BaseClass):
 
     def test_nonEmpty_Fields(self):
         loginPage = LoginPage(self.driver)
-        if self.util.checkEmptyInputFields(loginPage.getPassword()) == False and self.util.checkEmptyInputFields(
+        if loginPage.checkEmptyInputFields(loginPage.getPassword()) == False and loginPage.checkEmptyInputFields(
                 loginPage.getUserName()) == False:
-            assert self.util.checkActiveButton(loginPage.loginButton())
+            assert loginPage.checkActiveButton(loginPage.loginButton())
 
     def test_login(self):
         loginPage = LoginPage(self.driver)
