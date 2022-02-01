@@ -18,8 +18,8 @@ class TestAlerts(BaseClass):
         self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
         '''
         self.driver.implicitly_wait(5)
-        self.alerts_page = AlertsPage(self.driver)
-        self.alerts_page.open_alerts()
+       # self.alerts_page = AlertsPage(self.driver)
+       # self.alerts_page.open_alerts()
 
     def test_alerts(self):
         '''
@@ -32,6 +32,7 @@ class TestAlerts(BaseClass):
         self.reuse()
         self.alerts_page.get_list_elements()
 
+        '''
     def test_no_alerts_found(self):
         self.loginPage = LoginPage(self.driver)
         self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
@@ -41,12 +42,13 @@ class TestAlerts(BaseClass):
         time.sleep(5)
         a = ActionChains(self.driver)
         a.key_down(Keys.CONTROL).send_keys('+').perform()
-        ''' 
+
         self.driver.set_window_size(3840, 1938, self.driver.window_handles[0])
         self.driver.execute_script("document.body.style.zoom='40%'")
         time.sleep(5)
         self.driver.execute_script("window.scrollBy(100,1000)","")
         '''
+
 
     def test_total_count(self):
         # it checks the total count
@@ -61,49 +63,46 @@ class TestAlerts(BaseClass):
 
     def test_SortbyEventDesc(self):
         self.reuse()
-        self.alerts_page.wait_till_page_load()
         time.sleep(2)
         assert self.alerts_page.sortby_event_desc()
 
-    def test_SortbyEventASC(self):
-        self.reuse()
-        self.alerts_page.wait_till_page_load()
-        time.sleep(2)
-        assert self.alerts_page.sortby_event_asc()
-
     def test_SortbyUniqueDesc(self):
         self.reuse()
-        self.alerts_page.wait_till_page_load()
         time.sleep(2)
         assert self.alerts_page.sortby_event_unique_desc()
 
-    def test_SortbyUniqueASC(self):
-        self.reuse()
-        self.alerts_page.wait_till_page_load()
-        time.sleep(2)
-        assert self.alerts_page.sortby_event_unique_asc()
-
     def test_SortbyLastOccurrencetDesc(self):
         self.reuse()
-        self.alerts_page.wait_till_page_load()
         time.sleep(2)
         assert self.alerts_page.sortby_last_occurrence_desc()
 
-    def test_SortbyFirstOccurrenceASC(self):
+    def test_SortbyFirstOccurrenceDESC(self):
         self.reuse()
-        self.alerts_page.wait_till_page_load()
         time.sleep(2)
-        assert self.alerts_page.sortby_last_occurrence_asc()
+        assert self.alerts_page.sortby_first_occurrence_desc()
 
     def test_SortbySeverityDesc(self):
         self.reuse()
-        self.alerts_page.wait_till_page_load()
         time.sleep(2)
         assert self.alerts_page.sortby_severity_desc()
 
+    def test_SortbyEventASC(self):
+        self.reuse()
+        time.sleep(2)
+        assert self.alerts_page.sortby_event_asc()
+
+    def test_SortbyUniqueASC(self):
+        self.reuse()
+        time.sleep(2)
+        assert self.alerts_page.sortby_event_unique_asc()
+
+    def test_SortbyFirstOccurrenceASC(self):
+        self.reuse()
+        time.sleep(2)
+        assert self.alerts_page.sortby_first_occurrence_asc()
+
     def test_SortbySeverityASC(self):
         self.reuse()
-        self.alerts_page.wait_till_page_load()
         time.sleep(2)
         assert self.alerts_page.sortby_severity_asc()
 
@@ -119,3 +118,4 @@ class TestAlerts(BaseClass):
             self.loginPage = LoginPage(self.driver)
             self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
             self.alerts_page.open_alerts()
+            self.alerts_page.wait_till_page_load()

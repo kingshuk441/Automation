@@ -27,6 +27,7 @@ class AlertRulesPage(BasePage):
     button_event_type_list = "//div[@class='event-type-template-wrapper ng-star-inserted']"
     button_add_custom_policy = (By.XPATH, "//div[contains(text(),'Add Custom Policy')]")
     button_add_recipient = (By.XPATH, "//div[contains(text(),'Add Recipient')]")
+    button_cancel = (By.XPATH, "//button[text()='Cancel']")
     model_custom_policy = (By.XPATH, "//div[@class='uwf-modal']")
 
     checkbox_policy_select_all = (By.XPATH, "(//div[@class='uwf-checkbox uwf-checkbox_light'])[1]")
@@ -93,6 +94,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_notification)
         self.do_click(self.button_notification)
         flag2 = self.check_exists_by_xpath(self.status_button_notification)
+        self.do_click(self.button_notification)
         if flag != flag2:
             return True
         else:
@@ -105,6 +107,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_warning)
         self.do_click(self.button_warning)
         flag2 = self.check_exists_by_xpath(self.status_button_warning)
+        self.do_click(self.button_warning)
         if flag != flag2:
             return True
         else:
@@ -117,6 +120,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_error)
         self.do_click(self.button_error)
         flag2 = self.check_exists_by_xpath(self.status_button_error)
+        self.do_click(self.button_error)
         if flag != flag2:
             return True
         else:
@@ -129,6 +133,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_critical)
         self.do_click(self.button_critical)
         flag2 = self.check_exists_by_xpath(self.status_button_critical)
+        self.do_click(self.button_critical)
         if flag != flag2:
             return True
         else:
@@ -141,6 +146,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_emergency)
         self.do_click(self.button_emergency)
         flag2 = self.check_exists_by_xpath(self.status_button_emergency)
+        self.do_click(self.button_emergency)
         if flag != flag2:
             return True
         else:
@@ -150,6 +156,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_policy)
         self.do_click(self.button_policy)
         flag2 = self.check_exists_by_xpath(self.status_button_policy)
+        self.do_click(self.button_policy)
         if flag != flag2:
             return True
         else:
@@ -159,6 +166,7 @@ class AlertRulesPage(BasePage):
         flag = self.check_exists_by_xpath(self.status_button_email)
         self.do_click(self.button_email)
         flag2 = self.check_exists_by_xpath(self.status_button_email)
+        self.do_click(self.button_email)
         if flag != flag2:
             return True
         else:
@@ -166,11 +174,15 @@ class AlertRulesPage(BasePage):
 
     def button_click_custom_policy(self):
         self.do_click(self.button_add_custom_policy)
-        return self.is_visible(self.model_custom_policy)
+        result = self.is_visible(self.model_custom_policy)
+        self.do_click(self.button_cancel)
+        return result
 
     def button_click_add_recipient(self):
         self.do_click(self.button_add_recipient)
-        return self.is_visible(self.model_custom_policy)
+        result = self.is_visible(self.model_custom_policy)
+        self.do_click(self.button_cancel)
+        return result
 
     def button_notification_off_disable_all(self):
         var = self.check_exists_by_xpath(self.status_button_notification)
@@ -285,11 +297,15 @@ class AlertRulesPage(BasePage):
 
     def select_all_policy(self):
         self.do_click(self.checkbox_policy_select_all)
-        return self.list_length(self.list_checkbox_selected) == self.get_policies_length()
+        result = self.list_length(self.list_checkbox_selected) == self.get_policies_length()
+        self.do_click(self.checkbox_policy_select_all)
+        return result
 
     def select_all_recipients(self):
         self.do_click(self.checkbox_recipient_select_all)
-        return self.list_length(self.list_checkbox_selected) == self.get_recipients_length()
+        result = self.list_length(self.list_checkbox_selected) == self.get_recipients_length()
+        self.do_click(self.checkbox_recipient_select_all)
+        return result
 
     def status_button_click (self):
         len = self.get_policies_length()

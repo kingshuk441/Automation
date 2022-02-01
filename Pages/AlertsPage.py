@@ -63,7 +63,9 @@ class AlertsPage(BasePage):
 
     def select_all(self):
         self.do_click(self.checkbox_select_all)
-        return self.list_length(self.list_checkbox_selected) == self.get_alerts_list_length()
+        result = self.list_length(self.list_checkbox_selected) == self.get_alerts_list_length()
+        self.do_click(self.checkbox_select_all)
+        return result
 
     def sortby_event_desc(self):
         return self.column_sort_desc(self.button_event_type, self.table_list_event_type)

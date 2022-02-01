@@ -18,8 +18,8 @@ class TestAlertsRules(BaseClass):
         self.alert_rule_page = AlertRulesPage(self.driver)
         self.alert_rule_page.open_alert_rules()
         '''
-        self.alert_rule_page = AlertRulesPage(self.driver)
-        self.alert_rule_page.open_alert_rules()
+        #  self.alert_rule_page = AlertRulesPage(self.driver)
+        #self.alert_rule_page.open_alert_rules()
         # self.alert_rule_page.verify_its_that_page() # return list but in this case using for wait
 
     def test_alertrules(self):
@@ -53,8 +53,9 @@ class TestAlertsRules(BaseClass):
 
     def test_buttonStatus(self):
         #self.reuse()
-        self.alert_rule_page = AlertRulesPage(self.driver)
-        self.alert_rule_page.open_alert_rules()
+        #self.alert_rule_page = AlertRulesPage(self.driver)
+        #self.alert_rule_page.open_alert_rules()
+        self.reuse()
         self.alert_rule_page.status_of_button()
 
     def test_buttonClickNotification(self):
@@ -103,13 +104,13 @@ class TestAlertsRules(BaseClass):
         self.reuse()
         print(self.alert_rule_page.sortby_event_desc())
 
-    def test_SortbyEventTypeASC(self):
-        self.reuse()
-        assert self.alert_rule_page.sortby_event_asc()
-
     def test_SortbyStatusDESC(self):
         self.reuse()
         assert self.alert_rule_page.sortby_status_desc()
+
+    def test_SortbyEventTypeASC(self):
+        self.reuse()
+        assert self.alert_rule_page.sortby_event_asc()
 
     def test_SortbyStatusASC(self):
         self.reuse()
@@ -150,35 +151,35 @@ class TestAlertsRules(BaseClass):
         self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_to_desc()
 
-    def test_SortbyToASC(self):
-        self.reuse()
-        self.alert_rule_page.wait_till_page_load()
-        assert self.alert_rule_page.sortby_to_asc()
-
     def test_SortbyEsDESC(self):
         self.reuse()
         self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_es_desc()
-
-    def test_SortbyEsASC(self):
-        self.reuse()
-        self.alert_rule_page.wait_till_page_load()
-        assert self.alert_rule_page.sortby_es_asc()
 
     def test_SortbySfaDESC(self):
         self.reuse()
         self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_sfa_desc()
 
-    def test_SortbySfaASC(self):
-        self.reuse()
-        self.alert_rule_page.wait_till_page_load()
-        assert self.alert_rule_page.sortby_sfa_asc()
-
     def test_SortbyInsightDESC(self):
         self.reuse()
         self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_insight_desc()
+
+    def test_SortbyToASC(self):
+        self.reuse()
+        self.alert_rule_page.wait_till_page_load()
+        assert self.alert_rule_page.sortby_to_asc()
+
+    def test_SortbyEsASC(self):
+        self.reuse()
+        self.alert_rule_page.wait_till_page_load()
+        assert self.alert_rule_page.sortby_es_asc()
+
+    def test_SortbySfaASC(self):
+        self.reuse()
+        self.alert_rule_page.wait_till_page_load()
+        assert self.alert_rule_page.sortby_sfa_asc()
 
     def test_SortbyInsightASC(self):
         self.reuse()
