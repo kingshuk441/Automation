@@ -18,6 +18,7 @@ class TestManageUsers(BaseClass):
     driver = None
     tableDataMap = {}
     noOfRows = 0
+    newUserAdded = []
     tableColumns = ManageUsersData.TABLE_COLUMNS
     URL = ManageUsersData.URL
     AddUserBtnText = ManageUsersData.ADD_USER_BTN
@@ -1059,7 +1060,6 @@ class TestManageUsers(BaseClass):
         assert res
         Logger.info("TestCASE PASSED (PASSWORD CHANGE NON LOGIN USER)")
 
-    '''''
     def test_dropDown_UserModal(self):
         Logger.info(
             "==============================================================================================================\n")
@@ -1685,8 +1685,6 @@ class TestManageUsers(BaseClass):
         assert res
         Logger.info("TestCASE PASSED (DELETE MULTIPLE USERS)")
 
-    '''''
-
     def test_delete_Modal(self):
         Logger.info(
             "==============================================================================================================\n")
@@ -1858,19 +1856,7 @@ class TestManageUsers(BaseClass):
         file.write(json.dumps(values))
         file.write(json.dumps(self.tableDataMap, indent=2))
         # TODO: check Row Data Matched
-        loginPage = LoginPage(self.driver)
-        loginPage.Logout()
-        userName = username
-        password = pwd
-        if role == 'Admin':
-            res = res and manageUsers.loginWithAdmin(manageUsers, userName,
-                                                     password)
-        else:
-            res = res and manageUsers.loginWithNonAdmin(manageUsers, userName,
-                                                        password)
-        Logger.info(f"Login with newly added user: {res}")
-        loginPage = LoginPage(self.driver)
-        loginPage.Logout()
+        self.newUserAdded.append([username, pwd, role])
         assert res
         Logger.info("TestCASE PASSED (ADD MULTIPLE NEW USER)")
 
@@ -1951,38 +1937,6 @@ class TestManageUsers(BaseClass):
         Logger.info("selected row " + str(idx) + " is updated: " + str(res))
         Logger.info("TestCASE PASSED (EDIT LOGIN USER)")
 
-    def test_deleteUser_multipleUser(self, deleteUserDataMulti):
-        Logger.info(
-            "==============================================================================================================\n")
-        manageUsers = ManageUsersPage(self.driver)
-        userName = deleteUserDataMulti
-        Logger.info(f"{userName}")
-        uIdx = manageUsers.UserIndex(self.tableDataMap, userName)
-        Logger.info(f"{uIdx}")
-        manageUsers.selectOne(manageUsers, uIdx)
-        deleteBtn = manageUsers.getEditOptions()[2]
-        deleteBtn.click()
-        Logger.info("delete btn clicked")
-        yesBtn = manageUsers.getDeleteModalBtns()[2]
-        yesBtn.click()
-        Logger.info("clicking yes btn")
-        time.sleep(3)
-        allRows = manageUsers.getAllTableRows(manageUsers)
-        manageUsers.getTableData(
-            self.tableColumns, self.tableDataMap, allRows)
-        sizeAfter = len(self.tableDataMap[self.tableColumns[4]])
-        res = self.noOfRows == sizeAfter + 1
-        Logger.info(
-            f"Size before: {self.noOfRows}  == size after: {sizeAfter} + 1 : {res}")
-        unameList = manageUsers.getIthColData(self.tableDataMap, 0)
-        for ele in unameList:
-            if ele == userName:
-                res = False
-                break
-        Logger.info(f"data removed from table:{userName} : {res}")
-        assert res
-        Logger.info("TestCASE PASSED (DELETE MULTI-USER)")
-
     def test_ChangePwdUser_multiple_user(self, changePwdDataMulti):
         Logger.info(
             "==============================================================================================================\n")
@@ -2018,6 +1972,38 @@ class TestManageUsers(BaseClass):
         assert res
         Logger.info("TestCASE PASSED (PASSWORD CHANGE MULTI_USER)")
 
+    def test_deleteUser_multipleUser(self, deleteUserDataMulti):
+        Logger.info(
+            "==============================================================================================================\n")
+        manageUsers = ManageUsersPage(self.driver)
+        userName = deleteUserDataMulti
+        Logger.info(f"{userName}")
+        uIdx = manageUsers.UserIndex(self.tableDataMap, userName)
+        Logger.info(f"{uIdx}")
+        manageUsers.selectOne(manageUsers, uIdx)
+        deleteBtn = manageUsers.getEditOptions()[2]
+        deleteBtn.click()
+        Logger.info("delete btn clicked")
+        yesBtn = manageUsers.getDeleteModalBtns()[2]
+        yesBtn.click()
+        Logger.info("clicking yes btn")
+        time.sleep(3)
+        allRows = manageUsers.getAllTableRows(manageUsers)
+        manageUsers.getTableData(
+            self.tableColumns, self.tableDataMap, allRows)
+        sizeAfter = len(self.tableDataMap[self.tableColumns[4]])
+        res = self.noOfRows == sizeAfter + 1
+        Logger.info(
+            f"Size before: {self.noOfRows}  == size after: {sizeAfter} + 1 : {res}")
+        unameList = manageUsers.getIthColData(self.tableDataMap, 0)
+        for ele in unameList:
+            if ele == userName:
+                res = False
+                break
+        Logger.info(f"data removed from table:{userName} : {res}")
+        assert res
+        Logger.info("TestCASE PASSED (DELETE MULTI-USER)")
+
     @pytest.fixture(params=ManageUsersData.getAddTestData('Sheet1'))
     def addUserData(self, request):
         manageUsers = ManageUsersPage(self.driver)
@@ -2028,7 +2014,24 @@ class TestManageUsers(BaseClass):
 
     @pytest.fixture(params=ManageUsersData.getAddTestData('Sheet3'))
     def addUserDataMulti(self, request):
-        return request.param
+        itemsCount = len(ManageUsersData.DEFAULT_ADD_USER_DATA)
+        yield request.param
+        if itemsCount - len(self.newUserAdded) == 0:
+            manageUsers = ManageUsersPage(self.driver)
+            res = True
+            loginPage = LoginPage(self.driver)
+            loginPage.Logout()
+            for entry in self.newUserAdded:
+                uname = entry[0]
+                pwd = entry[1]
+                role = entry[2]
+                if role == 'Admin':
+                    res = res and manageUsers.loginWithAdmin(manageUsers, uname, pwd)
+                else:
+                    res = res and manageUsers.loginWithNonAdmin(manageUsers, uname, pwd)
+                loginPage = LoginPage(self.driver)
+                loginPage.Logout()
+            assert res
 
     @pytest.fixture(params=ManageUsersData.getEditTestData('Sheet2'))
     def editUserData(self, request):

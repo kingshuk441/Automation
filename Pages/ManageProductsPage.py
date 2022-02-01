@@ -1,13 +1,12 @@
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from Utilities.utilityFn import Utility
+
+from Pages.BasePage import BasePage
 
 
-class ManageProductsPage:
-    utils = Utility()
+class ManageProductsPage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     manageBtn = (By.CSS_SELECTOR, 'div.uwf-navbar__menu-item-container')
     productOpt = (By.XPATH, "//div[contains(text(),'Products')]")
@@ -59,128 +58,118 @@ class ManageProductsPage:
     addProduct = 'button.uwf-btn.product-bar-add-item-button'
 
     def getManageBtn(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.manageBtn)[1]
+        return self.waitForElements(ManageProductsPage.manageBtn)[1]
 
     def getProductOption(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.productOpt)
+        return self.waitForElement(ManageProductsPage.productOpt)
 
     def getAddUser(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.addUserBtn)
+        return self.waitForElement(ManageProductsPage.addUserBtn)
 
     def getModal(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.modal)
+        return self.waitForElement(ManageProductsPage.modal)
 
     def getSelectAll(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.selectAll)
+        return self.waitForElement(ManageProductsPage.selectAll)
 
     def getTable(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.table)
+        return self.waitForElement(ManageProductsPage.table)
 
     def getAllRows(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.allRows)
+        return self.waitForElements(ManageProductsPage.allRows)
 
     def getTableCheckbox(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.tableCheckBox)
+        return self.waitForElements(ManageProductsPage.tableCheckBox)
 
     def getEditOptions(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.editOptions)
+        return self.waitForElements(ManageProductsPage.editOptions)
 
     def getLabelText(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.label).text
+        return self.waitForElement(ManageProductsPage.label).text
 
     def UserNameClick(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.userNameSort)
+        return self.waitForElement(ManageProductsPage.userNameSort)
 
     def FirstNameClick(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.firstNameSort)
+        return self.waitForElement(ManageProductsPage.firstNameSort)
 
     def LastNameClick(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.lastNameSort)
+        return self.waitForElement(ManageProductsPage.lastNameSort)
 
     def EmailClick(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.emailSort)
+        return self.waitForElement(ManageProductsPage.emailSort)
 
     def RoleNameClick(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.roleSort)
+        return self.waitForElement(ManageProductsPage.roleSort)
 
     def getUsername(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.userName)
+        return self.waitForElement(ManageProductsPage.userName)
 
     def getFirstname(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.firstName)
+        return self.waitForElement(ManageProductsPage.firstName)
 
     def getLastname(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.lastName)
+        return self.waitForElement(ManageProductsPage.lastName)
 
     def getEmail(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.email)
+        return self.waitForElement(ManageProductsPage.email)
 
     def getPassword(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.password)
+        return self.waitForElement(ManageProductsPage.password)
 
     def getReTypePassword(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.reTypePassword)
+        return self.waitForElement(ManageProductsPage.reTypePassword)
 
     def getRole(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.role)
+        return self.waitForElement(ManageProductsPage.role)
 
     def getRoleChoice(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.roleChoice)
+        return self.waitForElements(ManageProductsPage.roleChoice)
 
     def getAddNewUser(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.addNewUserBtn)
+        return self.waitForElement(ManageProductsPage.addNewUserBtn)
 
     def getCancel(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.cancelBtn)
+        return self.waitForElement(ManageProductsPage.cancelBtn)
 
     def getUpdate(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.updateBtn)
+        return self.waitForElement(ManageProductsPage.updateBtn)
 
     def getDisabled(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.disabled)
+        return self.waitForElements(ManageProductsPage.disabled)
 
     def getLoggedInUser(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.loginUser).text
+        return self.waitForElement(ManageProductsPage.loginUser).text
 
     def getChangePassword(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.changePassword)
+        return self.waitForElement(ManageProductsPage.changePassword)
 
     def getSortedArrow(self, element):
         return element.find_element(By.CSS_SELECTOR, "uwf-icon")
 
     def getAllUsersDropDown(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.allUsers)
+        return self.waitForElement(ManageProductsPage.allUsers)
 
     def getAllRolesDropDown(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.allRoles)
+        return self.waitForElement(ManageProductsPage.allRoles)
 
     def getDropdownOptions(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.dropdownOptions)
+        return self.waitForElements(ManageProductsPage.dropdownOptions)
 
     def getDeleteModalBtns(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.deleteModalBtns)
+        return self.waitForElements(ManageProductsPage.deleteModalBtns)
 
     def getFilterBar(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.filter)
+        return self.waitForElement(ManageProductsPage.filter)
 
     def getFilterCheckBox(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.filterCheckBox)
+        return self.waitForElement(ManageProductsPage.filterCheckBox)
 
     def getFilterController(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.filterController)
+        return self.waitForElements(ManageProductsPage.filterController)
 
     def getClearTool(self):
-        return self.utils.waitForElement(self.driver, ManageProductsPage.clearTool)
+        return self.waitForElement(ManageProductsPage.clearTool)
 
     def getResetTool(self):
-        return self.utils.waitForElements(self.driver, ManageProductsPage.resetTool)
-
-    def isModalPresent(self, css=''):
-        try:
-            if css == '':
-                css = ".cdk-overlay-pane.uwf-dialog-panel"
-
-            element = self.driver.find_element(By.CSS_SELECTOR, css)
-            return True
-        except NoSuchElementException as e:
-            return False
+        return self.waitForElements(ManageProductsPage.resetTool)

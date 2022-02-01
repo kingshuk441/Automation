@@ -23,13 +23,13 @@ class ManageUsersData:
                              {NEW_USERS_FIELDS[5]: "", NEW_USERS_FIELDS[6]: "123456"},
                              {NEW_USERS_FIELDS[5]: "123456", NEW_USERS_FIELDS[6]: "12356"},
                              {NEW_USERS_FIELDS[5]: "123456", NEW_USERS_FIELDS[6]: ""}]
-    DELETE_USER = ["qw", "k"]
+    DELETE_USER = ["z1", "z2"]
     CHANGE_PASSWORD = []
+    EXCEL_PATH = 'C:\\Users\\kchoudhary\\Desktop\\DDNi-Automation\\dataSet\\data.xlsx'
 
     @staticmethod
     def getAddTestData(sheetName):
-        book = openpyxl.load_workbook(
-            "C:\\Users\\kchoudhary\\Desktop\\Insight\\installer\\test-frameworks\\Automation\\DDNi-Automation\\dataSet\\data.xlsx")
+        book = openpyxl.load_workbook(ManageUsersData.EXCEL_PATH)
         sheet = book[sheetName]
         ManageUsersData.DEFAULT_ADD_USER_DATA = []
         for i in range(2, sheet.max_row + 1):
@@ -44,8 +44,7 @@ class ManageUsersData:
 
     @staticmethod
     def getEditTestData(sheetName):
-        book = openpyxl.load_workbook(
-            "C:\\Users\\kchoudhary\\Desktop\\Insight\\installer\\test-frameworks\\Automation\\DDNi-Automation\\dataSet\\data.xlsx")
+        book = openpyxl.load_workbook(ManageUsersData.EXCEL_PATH)
         ManageUsersData.DEFAULT_EDIT_USER_DATA = []
         sheet = book[sheetName]
         print("-------------------------------------------------------------")
@@ -62,8 +61,7 @@ class ManageUsersData:
 
     @staticmethod
     def getChangePwdTestData():
-        book = openpyxl.load_workbook(
-            "C:\\Users\\kchoudhary\\Desktop\\Insight\\installer\\test-frameworks\\Automation\\DDNi-Automation\\dataSet\\data.xlsx")
+        book = openpyxl.load_workbook(ManageUsersData.EXCEL_PATH)
         ManageUsersData.CHANGE_PASSWORD = []
         sheet = book['Sheet5']
         print("-------------------------------------------------------------")

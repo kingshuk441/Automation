@@ -54,6 +54,7 @@ logging.addLevelName(LOG_LVL_RC, "RC")
 logging.addLevelName(LOG_LVL_STDERR, "STDERR")
 logging.addLevelName(LOG_LVL_STDOUT, "STDOUT")
 
+
 def debug(msg, classname=None, methodname=None):
     message = ""
     if classname:
@@ -61,8 +62,9 @@ def debug(msg, classname=None, methodname=None):
     if methodname:
         message = message + methodname + " -> "
     message = message + msg
-    message= "{}::{}::{}: {}".format(*get_call_info(), message)
+    message = "{}::{}::{}: {}".format(*get_call_info(), message)
     logger.debug(message)
+
 
 def get_call_info():
     stack = inspect.stack()
@@ -73,6 +75,7 @@ def get_call_info():
     funcName = stack[2][3]
     return module, funcName, lineno
 
+
 def get_cmd_call_info():
     stack = inspect.stack()
     # stack[4] gives info of methods which call cmd execute method
@@ -81,33 +84,41 @@ def get_cmd_call_info():
     funcName = stack[4][3]
     return module, funcName, lineno
 
+
 def info(msg):
     msg = "{}::{}::{}: {}".format(*get_call_info(), msg)
     logger.info(msg)
+
 
 def error(msg):
     msg = "{}::{}::{}: {}".format(*get_call_info(), msg)
     logger.error(msg)
 
+
 def warn(msg):
     msg = "{}::{}::{}: {}".format(*get_call_info(), msg)
     logger.warning(msg)
+
 
 def _print(msg):
     msg = "{}::{}::{}: {}".format(*get_call_info(), msg)
     logger.debug(msg)
 
+
 def cmd(msg):
     msg = "{}::{}::{}: CMD: {}".format(*get_cmd_call_info(), msg)
-    logger.log(LOG_LVL_CMD,msg)
+    logger.log(LOG_LVL_CMD, msg)
+
 
 def stdout(msg):
     msg = "{}::{}::{}: STDOUT: {}".format(*get_cmd_call_info(), msg)
-    logger.log(LOG_LVL_STDOUT,msg)
+    logger.log(LOG_LVL_STDOUT, msg)
+
 
 def stderr(msg):
     msg = "{}::{}::{}: STDERR: {}".format(*get_cmd_call_info(), msg)
-    logger.log(LOG_LVL_STDERR,msg)
+    logger.log(LOG_LVL_STDERR, msg)
+
 
 def set_level(level):
     """
@@ -116,14 +127,18 @@ def set_level(level):
     """
     logger.setLevel(level)
 
+
 def set_level_to_debug():
     logger.setLevel(logging.DEBUG)
+
 
 def set_level_to_info():
     logger.setLevel(logging.INFO)
 
+
 def set_level_to_warn():
     logger.setLevel(logging.WARN)
+
 
 def set_level_to_error():
     logger.setLevel(logging.ERROR)

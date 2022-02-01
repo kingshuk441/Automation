@@ -1,12 +1,10 @@
 import time
 from Pages.LoginPage import LoginPage
-from Utilities.Base import Base
+from Utilities.BaseClass import BaseClass
 from dataSet.loginPageData import DDNI_VERSION
-from Utilities.utilityFn import Utility
 
 
-class TestLogin(Base):
-    util = Utility()
+class TestLogin(BaseClass):
 
     def test_DDN_Version(self):
         loginPage = LoginPage(self.driver)
@@ -44,4 +42,3 @@ class TestLogin(Base):
         time.sleep(6)
         url = self.driver.current_url
         assert "dashboard" in url
-        # self.driver.find_element(By.CSS_SELECTOR, 'div.product-bar-add-item-button-container button').click()
