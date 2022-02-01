@@ -2016,22 +2016,22 @@ class TestManageUsers(BaseClass):
     def addUserDataMulti(self, request):
         itemsCount = len(ManageUsersData.DEFAULT_ADD_USER_DATA)
         yield request.param
-        # if itemsCount - len(self.newUserAdded) == 0:
-        #     manageUsers = ManageUsersPage(self.driver)
-        #     res = True
-        #     loginPage = LoginPage(self.driver)
-        #     loginPage.Logout()
-        #     for entry in self.newUserAdded:
-        #         uname = entry[0]
-        #         pwd = entry[1]
-        #         role = entry[2]
-        #         if role == 'Admin':
-        #             res = res and manageUsers.loginWithAdmin(manageUsers, uname, pwd)
-        #         else:
-        #             res = res and manageUsers.loginWithNonAdmin(manageUsers, uname, pwd)
-        #         loginPage = LoginPage(self.driver)
-        #         loginPage.Logout()
-        #     assert res
+        if itemsCount - len(self.newUserAdded) == 0:
+            manageUsers = ManageUsersPage(self.driver)
+            res = True
+            loginPage = LoginPage(self.driver)
+            loginPage.Logout()
+            for entry in self.newUserAdded:
+                uname = entry[0]
+                pwd = entry[1]
+                role = entry[2]
+                if role == 'Admin':
+                    res = res and manageUsers.loginWithAdmin(manageUsers, uname, pwd)
+                else:
+                    res = res and manageUsers.loginWithNonAdmin(manageUsers, uname, pwd)
+                loginPage = LoginPage(self.driver)
+                loginPage.Logout()
+            assert res
 
     @pytest.fixture(params=ManageUsersData.getEditTestData('Sheet2'))
     def editUserData(self, request):
