@@ -118,62 +118,50 @@ class TestAlertsRules(BaseClass):
 
     def test_HoverHelpTrigger(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         self.alert_rule_page.hover_help_button()
 
     def test_total_count_policy(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.get_policies_count() == self.alert_rule_page.get_policies_length()
 
     def test_total_count_recipients(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.get_recipients_count() == self.alert_rule_page.get_recipients_length()
 
     def test_policy_select_all(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.select_all_policy()
 
     def test_recipients_select_all(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.select_all_recipients()
 
     def test_status_button_click(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.status_button_click()
 
     def test_SortbyToDESC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_to_desc()
 
     def test_SortbyEsDESC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_es_desc()
 
     def test_SortbySfaDESC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_sfa_desc()
 
     def test_SortbyInsightDESC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_insight_desc()
 
     def test_SortbyToASC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_to_asc()
 
     def test_SortbyEsASC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_es_asc()
 
     def test_SortbySfaASC(self):
@@ -182,7 +170,6 @@ class TestAlertsRules(BaseClass):
 
     def test_SortbyInsightASC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_insight_asc()
 
     def test_button_add_recipient_es(self):
