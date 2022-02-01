@@ -1,10 +1,13 @@
 import time
 from Pages.LoginPage import LoginPage
-from Utilities.BaseClass import BaseClass
+from Utilities.Base import Base
+from Utilities.testData import TestData
 from dataSet.loginPageData import DDNI_VERSION
+#from Utilities.utilityFn import Utility
 
 
-class TestLogin(BaseClass):
+class TestLogin(Base):
+    #util = Utility()
 
     def test_DDN_Version(self):
         loginPage = LoginPage(self.driver)
@@ -42,3 +45,47 @@ class TestLogin(BaseClass):
         time.sleep(6)
         url = self.driver.current_url
         assert "dashboard" in url
+        # self.driver.find_element(By.CSS_SELECTOR, 'div.product-bar-add-item-button-container button').click()
+
+    def test_Invalid_login(self):
+        loginpage = LoginPage(self.driver)
+        loginpage.getUserName().send_keys(TestData.Invalid_ID)
+        loginpage.getPassword().send_keys(TestData.Invalid_Pswd)
+        res = loginpage.do_Invalid_login()
+        assert res.lower() in TestData.Invalid_login_text.lower()
+
+    def test_unhide_password(self):
+        loginpage = LoginPage(self.driver)
+        res = loginpage.do_unhide_password(TestData.USERNAME, TestData.PASSWORD)
+        assert res == True
+
+    def test_change_password(self):
+        loginPage = LoginPage(self.driver)
+        loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+        res = loginPage.do_simple_change_password(TestData.old_password, TestData.new_password,
+                                                       TestData.retype_password)
+        if res:
+            #TestData.PASSWORD = TestData.new_password
+            loginPage.update_password()
+            time.sleep(3)
+            loginPage.enterCredentials(TestData.USERNAME, TestData.new_password)
+        else:
+            assert res
+
+    def test_cancel_change_password(self):
+        loginPage = LoginPage(self.driver)
+        loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+        loginPage.do_simple_change_password(TestData.old_password, TestData.new_password, TestData.retype_password)
+        loginPage.cancel_update_password()
+
+    def test_advance_change_password(self):
+        loginPage = LoginPage(self.driver)
+        loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
+        res = loginPage.do_advanced_change_password(TestData.PASSWORD, TestData.new_A_P, TestData.retype_A_P)
+        if res:
+            TestData.PASSWORD = TestData.new_A_P
+            loginPage.update_password()
+            time.sleep(3)
+            loginPage.enterCredentials(TestData.USERNAME, TestData.new_A_P)
+        else:
+            assert res

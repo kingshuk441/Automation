@@ -21,3 +21,6 @@ class TestData:
     retype_password = "ADMIN"
     new_A_P = "Ddn@1234"
     retype_A_P = "Ddn@1234"
+    Invalid_login_text = "Invalid credentials. Please try again."
+    Invalid_ID = "admn"
+    Invalid_Pswd = "1234"
