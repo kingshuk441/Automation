@@ -178,7 +178,6 @@ class TestAlertsRules(BaseClass):
 
     def test_SortbySfaASC(self):
         self.reuse()
-        self.alert_rule_page.wait_till_page_load()
         assert self.alert_rule_page.sortby_sfa_asc()
 
     def test_SortbyInsightASC(self):
@@ -198,3 +197,4 @@ class TestAlertsRules(BaseClass):
             self.loginPage = LoginPage(self.driver)
             self.loginPage.enterCredentials(TestData.USERNAME, TestData.PASSWORD)
             self.alert_rule_page.open_alert_rules()
+            self.alert_rule_page.wait_till_page_load()
