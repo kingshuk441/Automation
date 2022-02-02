@@ -56,8 +56,8 @@ class AlertsPage(BasePage):
     def get_list_elements(self):
         lis = []
         lis = self.store_to_list(self.list_total)
-        for i in lis:
-            print(i)
+        #for i in lis:
+            #print(i)
 
     def wait_till_page_load(self):
         self.check_page_loaded(self.is_wait)
@@ -72,31 +72,31 @@ class AlertsPage(BasePage):
         return self.column_sort_desc(self.button_event_type, self.table_list_event_type)
 
     def sortby_event_asc(self):
-        return self.column_sort_desc(self.button_event_type, self.table_list_event_type)
+        return self.column_sort_asc(self.button_event_type, self.table_list_event_type)
 
     def sortby_event_unique_desc(self):
         return self.column_sort_desc(self.button_event_unique_id, self.table_list_event_unique)
 
     def sortby_event_unique_asc(self):
-        return self.column_sort_desc(self.button_event_unique_id, self.table_list_event_unique)
+        return self.column_sort_asc(self.button_event_unique_id, self.table_list_event_unique)
 
     def sortby_last_occurrence_desc(self):
         return self.column_sort_desc(self.button_last_occurrence, self.table_list_last_occurrence)
 
     def sortby_last_occurrence_asc(self):
-        return self.column_sort_desc(self.button_last_occurrence, self.table_list_last_occurrence)
+        return self.column_sort_asc(self.button_last_occurrence, self.table_list_last_occurrence)
 
     def sortby_first_occurrence_desc(self):
         return self.column_sort_desc(self.button_first_occurrence_time, self.table_list_occurrence_time)
 
     def sortby_first_occurrence_asc(self):
-        return self.column_sort_desc(self.button_first_occurrence_time, self.table_list_occurrence_time)
+        return self.column_sort_asc(self.button_first_occurrence_time, self.table_list_occurrence_time)
 
     def sortby_severity_desc(self):
         return self.column_sort_desc(self.button_severity, self.table_list_severity)
 
     def sortby_severity_asc(self):
-        return self.column_sort_desc(self.button_severity, self.table_list_severity)
+        return self.column_sort_asc(self.button_severity, self.table_list_severity)
 
     def no_alerts_found(self):
         return self.check_exists_by_xpath(self.text_no_elements_found)

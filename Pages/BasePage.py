@@ -18,7 +18,7 @@ class BasePage:
         self.driver = driver
 
     def do_click(self, by_locator):
-        WebDriverWait(self.driver, 20).until(
+        WebDriverWait(self.driver, 15).until(
             EC.visibility_of_element_located(by_locator)).click()
 
     def do_send_keys(self, by_locator, text):
@@ -53,7 +53,7 @@ class BasePage:
 
     def check_exists_by_xpath(self, xpath):
         try:
-            self.driver.implicitly_wait(5)
+            self.driver.implicitly_wait(1.5)
             self.driver.find_element(By.XPATH, xpath)
         except NoSuchElementException:
             return False
@@ -138,7 +138,7 @@ class BasePage:
 
     def column_sort_desc(self, loc_button, loc_table_list):
         self.do_click(loc_button)
-        time.sleep(3)
+        time.sleep(1)
         lis1 = self.get_list_column(loc_table_list)
         lis2 = lis1
         lis2.sort(reverse=True)

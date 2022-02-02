@@ -12,8 +12,6 @@ from Utilities.testData import TestData
 @pytest.mark.usefixtures("initial")
 class TestAlerts(BaseClass):
 
-
-
     def test_alerts(self):
         if self.alerts_page.no_alerts_found():
             print("No Alerts found")

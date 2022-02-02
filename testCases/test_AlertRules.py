@@ -40,11 +40,11 @@ class TestAlertsRules(BaseClass):
     def test_buttonClickCustomPloicy(self):
         assert self.alert_rule_page.button_click_custom_policy()
 
-    def test_buttonClickAddRecipient(self):
-        assert self.alert_rule_page.button_click_add_recipient()
-
     def test_NotificationOffDisable(self):
         assert self.alert_rule_page.button_notification_off_disable_all() == True
+
+    def test_buttonClickAddRecipient(self):
+        assert self.alert_rule_page.button_click_add_recipient()
 
     def test_SortbyEventTypeDESC(self):
         print(self.alert_rule_page.sortby_event_desc())

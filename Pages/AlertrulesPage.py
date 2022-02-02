@@ -21,7 +21,7 @@ class AlertRulesPage(BasePage):
     button_status = (By.XPATH, "//div[contains(text(), 'Status')]/..")
     button_notification_disable = "//div[text()='Warning']/../../self::div[contains(@class,'disabled')]"
     button_to = (By.XPATH, "(//div[contains(text(), 'To')])[1]")
-    button_sfa = (By.XPATH, "(//div[contains(text(), 'SFA')])[1]")
+    button_sfa = (By.XPATH, "(//div[text()='SFA'])[1]")
     button_es = (By.XPATH, "(//div[contains(text(), 'ES')])[1]")
     button_insight = (By.XPATH, "(//div[contains(text(), 'Insight')])[1]")
     button_event_type_list = "//div[@class='event-type-template-wrapper ng-star-inserted']"
@@ -181,6 +181,7 @@ class AlertRulesPage(BasePage):
     def button_click_add_recipient(self):
         self.do_click(self.button_add_recipient)
         result = self.is_visible(self.model_custom_policy)
+        time.sleep(1)
         self.do_click(self.button_cancel)
         return result
 
@@ -188,7 +189,9 @@ class AlertRulesPage(BasePage):
         var = self.check_exists_by_xpath(self.status_button_notification)
         if var == True:
             self.do_click(self.button_notification)
-        return self.check_exists_by_xpath(self.button_notification_disable) # It will return true when the remaining notification buttons are disabled
+        result = self.check_exists_by_xpath(self.button_notification_disable) #It will return true when the remaining notification buttons are disabled
+        self.do_click(self.button_notification)
+        return result
     '''
     def sortby_event_desc(self):
         ele = self.store_elements_list(self.button_event_type_list)
@@ -270,14 +273,14 @@ class AlertRulesPage(BasePage):
         a = ActionChains(self.driver)
         self.driver.implicitly_wait(10)
         len = self.list_length(self.table_list_event)
-        time.sleep(3)
+        #time.sleep(1)
         for i in range(1, len):
             #m = self.driver.find_element(By.XPATH, ("(//div[@class='uwf-help-trigger type-gray'])[%d]" % i))
             self.driver.find_element(By.XPATH, ("(//div[@class='uwf-help-trigger type-gray'])[%d]" % i)).click()
-            time.sleep(3)
+            time.sleep(0.5)
             #a.move_to_element(m).perform()
-            print(i)
-            print(self.check_exists_by_xpath(self.status_question_hover))
+            #print(i)
+            #print(self.check_exists_by_xpath(self.status_question_hover))
             #print(self.driver.find_element(By.XPATH, self.status_question_hover).is_displayed())
 
     def get_policies_length(self):
@@ -323,7 +326,7 @@ class AlertRulesPage(BasePage):
             self.do_click(press)
             self.do_click(self.status_change_yes)
             #print(status_before)
-            time.sleep(2)
+            time.sleep(0.5)
             if self.check_exists_by_xpath(check):
                 status_after = True
             else:
@@ -331,16 +334,10 @@ class AlertRulesPage(BasePage):
             #print(status_after)
             self.do_click(press)
             self.do_click(self.status_change_yes)
-            '''
-            if status_before != status_after:
-                print(True)
-            else:
-                print(False)
-            '''
+            time.sleep(0.5)
             if status_before == status_after:
                 return False
-            time.sleep(3)
-
+            #time.sleep(1)
         return True
 
     def sortby_to_desc(self):
