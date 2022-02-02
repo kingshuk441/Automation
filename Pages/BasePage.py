@@ -40,11 +40,10 @@ class BasePage:
         return count
 
     def is_visible(self, by_locator):
-        element = WebDriverWait(self.driver, 15).until(
-            EC.visibility_of_element_located(by_locator))
+        element = WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator))
         return bool(element)
 
-    # basheer
+
     def get_title(self, title):
         WebDriverWait(self.driver, 10).until(EC.title_is(title))
         return self.driver.title
@@ -159,6 +158,7 @@ class BasePage:
         else:
             return False
 
+    # basheer
     def checkEmptyInputFields(self, locator):
         if len(locator.text) == 0:
             return True

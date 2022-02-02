@@ -26,6 +26,7 @@ class AlertsPage(BasePage):
     checkbox_select_all = (By.XPATH, "(//div[@class='uwf-checkbox uwf-checkbox_light'])[1]")
     status_archived_alerts = "//div[@class='uwf-button-group-radio']/div[2]/div/../self::div[contains(@class,'selected')]"
 
+    text_no_elements_found = "//div[text()=' No alerts found ']"
     text_total = (By.XPATH, "(//div[@class='uwf-grid__header_selection_label'])[1]")
     list_total = "(//div[@class='uwf-grid__main_table'])[1]//section"
     list_checkbox_selected = "//section[contains(@class,'selected')]"
@@ -96,6 +97,9 @@ class AlertsPage(BasePage):
 
     def sortby_severity_asc(self):
         return self.column_sort_desc(self.button_severity, self.table_list_severity)
+
+    def no_alerts_found(self):
+        return self.check_exists_by_xpath(self.text_no_elements_found)
 
     def button_click_archived_alert(self):
         self.do_click(self.button_archived_alerts)
