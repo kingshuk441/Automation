@@ -24,7 +24,7 @@ def openBrowser(request):
         chrome_options.add_experimental_option("detach", True)
         global driver
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-        driver.get("https://10.36.59.129/#/login")
+        driver.get("https://192.168.1.129/#/login")
         driver.fullscreen_window()
     elif browser_name == 'firefox':
         print('firefox')

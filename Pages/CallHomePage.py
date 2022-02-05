@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 
-class HomePage(BasePage):
+class CallHomePage(BasePage):
 
     MANAGE = (By.XPATH, "//div[contains(text(),'Manage')]")
     SETTINGS = (By.XPATH, "//*[name()='use' and @*='#settings']")
@@ -35,6 +35,9 @@ class HomePage(BasePage):
     tot_rows = "(//div[@class='uwf-grid__main_table'])[1]//section"
     Close_Mark = (By.XPATH, "//button[@class='uwf-dialog-box__close uwf-btn uwf-btn_icon ng-star-inserted']")
     URL = "call-home"
+    call_home_status = (By.XPATH, "//div[@class='uwf-grid__no-data-container ng-star-inserted']")
+    case_no_column_wise_data = "(//div[@class='uwf-grid__main_table'])[1]//section/div[1]"
+    created_on_column_wise_data = "(//div[@class='uwf-grid__main_table'])[1]//section/div[4]"
 
     #COUNT = (By.XPATH, "(//div[@class='uwf-grid__main_table'])[1]//section")
     #CALL_HOME_ROWS = (By.XPATH, "(//div[@class='uwf-grid__main_table'])[1]//section")
@@ -64,20 +67,85 @@ class HomePage(BasePage):
             if self.is_visible(self.CALLHOME):
                 self.do_click(self.CALLHOME)
 
+    def do_check_callhome_stat(self):
+        flag = True
+        res = ""
+        if self.is_visible(self.call_home_status):
+            res = self.get_element_text(self.call_home_status)
+        res = res.upper()
+        if "ENABLE CALL HOME" in res:
+            self.do_callhome_button_click()
+            self.do_check_callhome_stat()
+        if "NO TICKET" in res:
+            flag = False
+        return flag
+
+
+
     def sort_by_caseno(self):
-        self.do_click(self.CASENO)
+        if self.is_visible(self.CASENO):
+            return True
+        else:
+            return False
+        #self.do_click(self.CASENO)
 
     def sort_by_TicketID(self):
-        self.do_click(self.TICKETID)
+        if self.is_visible(self.TICKETID):
+            return True
+        else:
+            return False
+        #self.do_click(self.TICKETID)
 
     def sort_by_Subject(self):
-        self.do_click(self.SUBJECT)
+        if self.is_visible(self.SUBJECT):
+            return True
+        else:
+            return False
+        #self.do_click(self.SUBJECT)
 
     def sort_by_CreatedOn(self):
-        self.do_click(self.CREATED_ON)
+        if self.is_visible(self.CREATED_ON):
+            return True
+        else:
+            return False
+        #self.do_click(self.CREATED_ON)
 
     def sort_by_Status(self):
-        self.do_click(self.STATUS)
+        if self.is_visible(self.STATUS):
+            return True
+        else:
+            return False
+        #self.do_click(self.STATUS)
+
+    def sort_by_caseno_desc(self):
+        return self.column_sort_desc(self.CASENO, self.case_no_column_wise_data)
+
+    def sort_by_caseno_asc(self):
+        return self.column_sort_asc(self.CASENO, self.case_no_column_wise_data)
+
+    def sort_by_TicId_desc(self):
+        return self.column_sort_desc(self.TICKETID, self.case_no_column_wise_data)
+
+    def sort_by_TicId_asc(self):
+        return self.column_sort_asc(self.TICKETID, self.case_no_column_wise_data)
+
+    def sort_by_sub_desc(self):
+        return self.column_sort_desc(self.SUBJECT, self.case_no_column_wise_data)
+
+    def sort_by_sub_asc(self):
+        return self.column_sort_asc(self.SUBJECT, self.case_no_column_wise_data)
+
+    def sort_by_created_on_desc(self):
+        return self.column_sort_desc(self.CREATED_ON, self.created_on_column_wise_data)
+
+    def sort_by_created_on_asc(self):
+        return self.column_sort_asc(self.CREATED_ON, self.created_on_column_wise_data)
+
+    def sort_by_status_desc(self):
+        return self.column_sort_desc(self.STATUS, self.case_no_column_wise_data)
+
+    def sort_by_status_asc(self):
+        return self.column_sort_asc(self.STATUS, self.case_no_column_wise_data)
 
     def total_cases(self):
         time.sleep(2)
