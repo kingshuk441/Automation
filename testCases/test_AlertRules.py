@@ -102,6 +102,7 @@ class TestAlertsRules(BaseClass):
 
     def test_button_add_recipient_es(self):
         pass
+        # //div[@class='product-type ng-star-inserted'][1]/div[2]
 
 
     @pytest.fixture()

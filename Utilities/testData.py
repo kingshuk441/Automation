@@ -15,7 +15,7 @@ class TestData:
     COFIG_PSWDS = ["passwordabc", "DDNSolutions4U"]
     config_uname = "sbashetti@ddn.com"
     config_passs = "DDNSolutions4U"
-    call_home_url = "https://192.168.1.155/#/home/manage/call-home"
+    call_home_url = "call-home"
     old_password = "admin"
     new_password = "ADMIN"
     retype_password = "ADMIN"

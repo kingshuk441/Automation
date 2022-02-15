@@ -148,8 +148,11 @@ class BasePage:
             return False
 
     def column_sort_asc(self, loc_button, loc_table_list):
+        time.sleep(2)
         self.do_click(loc_button)
+        time.sleep(2)
         self.do_click(loc_button)
+        time.sleep(2)
         lis1 = self.get_list_column(loc_table_list)
         lis2 = lis1
         lis2.sort(reverse=True)
