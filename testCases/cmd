@@ -1,2 +1,0 @@
-pytest .\test_ManageUsers.py  --html=../reports/pytest_selenium_test_report.html
-
