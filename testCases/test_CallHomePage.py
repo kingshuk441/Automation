@@ -32,7 +32,7 @@ class Test_Home(BaseClass):
         # self.loginPage.do_login(TestData.USERNAME, TestData.PASSWORD)
         # self.homepage = HomePage(self.driver)
         uurl = self.homepage.get_cur_url()
-        assert uurl == TestData.call_home_url
+        assert TestData.call_home_url in uurl
 
     '''IF callHome is off it turns on and viceversa'''
 
@@ -160,17 +160,10 @@ class Test_Home(BaseClass):
         print(res)
         if res in "Success: Test Successful":
             self.homepage.configure_home_Save_btn()
-            assert res == "Success: Test Successful"
+            assert res in "Success: Test Successful"
         else:
-            assert (res == "Error occured while connecting to Salesforce")
+            assert (res in "Error occured while connecting to Salesforce")
         # print(res)
-        '''
-        if(res == "Success: Test Successful"):
-            homepage.configure_home_Save_btn()
-            assert 1 == 1
-        else:
-            assert 1 == 2
-            '''
 
     '''TEST CASE FOR CLICKING CANCEL BUTTON IN CALLHOME CONFIGURE'''
 
@@ -182,7 +175,7 @@ class Test_Home(BaseClass):
         self.homepage.click_selectall_checkbox()
 
     def test_UnselectAll_In_CallHome_Checkbox(self):
-        pass
+        self.homepage.click_selectall_checkbox()
 
     def test_Cancel_del_using_Xmark(self):
         self.homepage.cancel_del_using_xmark()

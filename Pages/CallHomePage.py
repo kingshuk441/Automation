@@ -1,5 +1,7 @@
 import time
 
+from selenium.common.exceptions import TimeoutException
+
 from Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -70,14 +72,17 @@ class CallHomePage(BasePage):
     def do_check_callhome_stat(self):
         flag = True
         res = ""
-        if self.is_visible(self.call_home_status):
-            res = self.get_element_text(self.call_home_status)
-        res = res.upper()
-        if "ENABLE CALL HOME" in res:
-            self.do_callhome_button_click()
-            self.do_check_callhome_stat()
-        if "NO TICKET" in res:
-            flag = False
+        try:
+            if self.is_visible(self.call_home_status):
+                res = self.get_element_text(self.call_home_status)
+                res = res.upper()
+            if "ENABLE CALL HOME" in res:
+                self.do_callhome_button_click()
+                self.do_check_callhome_stat()
+            if "NO TICKET" in res:
+                flag = False
+        except TimeoutException:
+            pass
         return flag
 
 
@@ -162,21 +167,22 @@ class CallHomePage(BasePage):
         self.do_click(self.CALLHOME_CONFIGURE_BTN)
         time.sleep(4)
         if self.is_visible(self.CALLHOME_SELF_SERVICE_USERNAME):
-            time.sleep(4)
+            time.sleep(1)
             self.do_clear(self.CALLHOME_SELF_SERVICE_USERNAME)
-            time.sleep(4)
+            time.sleep(1)
             self.do_send_keys(self.CALLHOME_SELF_SERVICE_USERNAME, username)
             #user = self.get_element_text(self.CALLHOME_SELF_SERVICE_USERNAME)
         if self.is_visible(self.CALLHOME_SELF_SERVICE_PASSWORD):
-            time.sleep(4)
+            time.sleep(1)
             self.do_clear(self.CALLHOME_SELF_SERVICE_PASSWORD)
-            time.sleep(4)
+            time.sleep(1)
             self.do_send_keys(self.CALLHOME_SELF_SERVICE_PASSWORD, password)
             #pswd = self.get_element_text(self.CALLHOME_SELF_SERVICE_PASSWORD)
-        time.sleep(4)
-        self.do_click(self.CALLHOME_SELF_SERVICE_TEST_BTN)
         time.sleep(2)
-        return self.get_element_text(self.CALLHOME_ERROR_MSG2)
+        self.do_click(self.CALLHOME_SELF_SERVICE_TEST_BTN)
+        #time.sleep(2)
+        if self.is_visible(self.CALLHOME_ERROR_MSG2):
+            return self.get_element_text(self.CALLHOME_ERROR_MSG2)
 
     def configure_home_Cancel_btn(self):
         self.do_click(self.CALLHOME_CONFIGURE_BTN)
