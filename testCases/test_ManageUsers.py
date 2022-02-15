@@ -122,27 +122,6 @@ class TestManageUsers(BaseClass):
     # TODO: Sorting add new user
     # TODO: test sort columns
     # TODO: Sorting on any col or not
-    def test_addUserBtn_Modal(self):
-        Logger.info(
-            "==============================================================================================================\n")
-        manageUsers = ManageUsersPage(self.driver)
-        manageUsers.clickAddUserBtn(manageUsers)
-        # TODO
-        res = manageUsers.isElementPresent()
-        Logger.info(f"modal is visible: {res}")
-        addUserBtn = manageUsers.getAddNewUser()
-        cancelBtn = manageUsers.getCancel()
-        Logger.info("getting add new user & cancel btn")
-        res = res and manageUsers.isAttrInElement(
-            "disabled", "class", addUserBtn)
-        Logger.info(f"addNew User btn is disabled: {res}")
-        Logger.info("clicking cancel Btn")
-        cancelBtn.click()
-        res = (res and not manageUsers.isElementPresent())
-        Logger.info(f"Modal removed: {res}")
-        assert res
-        Logger.info("TestCASE PASSED (ADD USER AND CANCEL BUTTON)")
-
     def test_addNewUser_Fields(self, addUserData):
         Logger.info(
             "==============================================================================================================\n")
@@ -194,13 +173,34 @@ class TestManageUsers(BaseClass):
         assert res
         Logger.info("TestCASE PASSED (ADD NEW USER FIELDS VALIDATE)")
 
+    def test_addUserBtn_Modal(self):
+        Logger.info(
+            "==============================================================================================================\n")
+        manageUsers = ManageUsersPage(self.driver)
+        manageUsers.clickAddUserBtn(manageUsers)
+        # TODO
+        res = manageUsers.isElementPresent()
+        Logger.info(f"modal is visible: {res}")
+        addUserBtn = manageUsers.getAddNewUser()
+        cancelBtn = manageUsers.getCancel()
+        Logger.info("getting add new user & cancel btn")
+        res = res and manageUsers.isAttrInElement(
+            "disabled", "class", addUserBtn)
+        Logger.info(f"addNew User btn is disabled: {res}")
+        Logger.info("clicking cancel Btn")
+        cancelBtn.click()
+        res = (res and not manageUsers.isElementPresent())
+        Logger.info(f"Modal removed: {res}")
+        assert res
+        Logger.info("TestCASE PASSED (ADD USER AND CANCEL BUTTON)")
+
     def test_addNewUser_NewEntry(self):
         Logger.info(
             "==============================================================================================================\n")
         manageUsers = ManageUsersPage(self.driver)
         manageUsers.clickAddUserBtn(manageUsers)
         res = True
-        userData = ['gf', 'gf', 'gh', 'e@gmail.com',
+        userData = ['gdf', 'gf', 'gh', 'e@gmail.com',
                     'Read only', '123456', '123456']
         username = userData[0]
         firstname = userData[1]
@@ -1115,7 +1115,7 @@ class TestManageUsers(BaseClass):
         filterController = manageUsers.getFilterController()
         controllerLen = len(filterController)
         res = controllerLen == 2
-        Logger.info(f"filter count is 2: {res}")
+        Logger.info(f"filter count is {controllerLen}: {res}")
         reset = manageUsers.getFilterController()[1]
         reset.click()
         Logger.info("Filter controller cancel btn clicked")
@@ -1313,7 +1313,7 @@ class TestManageUsers(BaseClass):
         res = True
         Logger.info("clicking User dropdown")
         filterBar = manageUsers.getFilterBar()
-        enterText = 'z'
+        enterText = 'd'
         Logger.info(f"typing value in input: {enterText}")
         filterBar.send_keys(enterText)
         NoResult = manageUsers.isElementPresent(manageUsers.noResult)
@@ -1810,7 +1810,6 @@ class TestManageUsers(BaseClass):
         Logger.info("TestCASE PASSED (DELETE NON LOGIN USER)")
 
     # BULK # NON-LOGIN-USER
-
     def test_addUser_multipleUser(self, addUserDataMulti):
         Logger.info(
             "==============================================================================================================\n")
@@ -2031,7 +2030,7 @@ class TestManageUsers(BaseClass):
                     res = res and manageUsers.loginWithNonAdmin(manageUsers, uname, pwd)
                 loginPage = LoginPage(self.driver)
                 loginPage.Logout()
-        Logger.info(f"Login with every added user: {res}")
+            Logger.info(f"Login with every added user: {res}")
 
     @pytest.fixture(params=ManageUsersData.getEditTestData('Sheet2'))
     def editUserData(self, request):

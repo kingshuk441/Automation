@@ -2,76 +2,26 @@
   "User Name": [
     "z2",
     "admin",
-    "_",
-    "_y",
-    "_z",
-    ".",
-    "1w",
-    "nb",
-    "NB",
-    "nm",
-    "NM",
-    "ram",
-    "sda"
+    "z1"
   ],
   "First Name": [
     "defaultFN",
     "updatedFN",
-    "dss",
-    "rtr",
-    "rw",
-    "wd",
-    "12",
-    "kj",
-    "we",
-    "fdfs",
-    "sds",
-    "ram",
-    "adC"
+    "updatez1"
   ],
   "Last Name": [
     "defaultLN",
     "upadatedLN",
-    "xcx",
-    "53",
-    "we",
-    "qe",
-    "43",
-    "onh",
-    "b5",
-    "we",
-    "5r",
-    "WE",
-    "SV"
+    "rweewrw"
   ],
   "Email": [
     "d@d.com",
     "update@test.com",
-    "xc@f.com",
-    "g@g.com",
-    "w@r.com",
-    "w@c.com",
-    "w@d.com",
-    "kv@g.com",
-    "a@c.com",
-    "r@t.com",
-    "f@e.com",
-    "a@q.com",
-    "b@z.com"
+    "xc@g.com"
   ],
   "Role": [
     "Admin",
     "Admin",
-    "Admin",
-    "Admin",
-    "Admin",
-    "Admin",
-    "Read only",
-    "Admin",
-    "Read only",
-    "Admin",
-    "Read only",
-    "Admin",
-    "Read only"
+    "Admin"
   ]
 }

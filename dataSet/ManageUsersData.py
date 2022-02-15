@@ -25,7 +25,7 @@ class ManageUsersData:
                              {NEW_USERS_FIELDS[5]: "123456", NEW_USERS_FIELDS[6]: ""}]
     DELETE_USER = ["z1", "z2"]
     CHANGE_PASSWORD = []
-    EXCEL_PATH = 'C:\\Test Automate\\Automation\\dataSet\\data.xlsx'
+    EXCEL_PATH = 'C:\\Users\\kchoudhary\\OneDrive - DDN Storage\\Desktop\\DDNi-Automation\\dataSet\\data.xlsx'
 
     @staticmethod
     def getAddTestData(sheetName):

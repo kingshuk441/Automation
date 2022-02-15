@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a462486-f951-4c9d-a3c9-a8a713e66ee6" name="Changes" comment="login,manageusers,manageproducts changes">
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DDNi-Automation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DDNi-Automation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataSet/ManageUsersData.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataSet/ManageUsersData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataSet/data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/dataSet/data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testCases/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCases/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testCases/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/testCases/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testCases/test_ManageUsers.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCases/test_ManageUsers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/csslint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/examples.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/html.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/jshint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/skins.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/options/styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/csslint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/examples/clean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/examples/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/examples/styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/html/bootlint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/html/clean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/html/dev.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/html/htmllint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/html/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/jshint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/scripts/clean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/scripts/dev.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/scripts/es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/skins/clean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/skins/styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/styles/clean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/recipes/styles/site.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/utils/lazyQuire.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/utils/notifaker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../dmweb-ui/common/vendor/remark-admin/classic/topicon/gulp/utils/pumped.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$/../../../../.." userTempatePath="" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="23dofwW3xGPRi6Qimtx2wAhYpIA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kchoudhary\Desktop\DDNi-Automation\Utilities" />
+      <recent name="C:\Users\kchoudhary\Desktop\DDNi-Automation\testCases" />
+      <recent name="C:\Users\kchoudhary\Desktop\DDNi-Automation\Pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kchoudhary\Desktop\DDNi-Automation\testCases" />
+      <recent name="C:\Users\kchoudhary\Desktop\DDNi-Automation\Pages" />
+      <recent name="C:\Users\kchoudhary\Desktop\Insight\installer\test-frameworks\Automation\DDNi-Automation\YZ" />
+      <recent name="C:\Users\kchoudhary\Desktop\Insight\installer\test-frameworks\Automation\DDNi-Automation\DEMO" />
+      <recent name="C:\Users\kchoudhary\Desktop\Insight\installer\test-frameworks\Automation\DDNi-Automation\testCases\ManageUsers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.pytest for test_ManageUsers.TestManageUsers">
+    <configuration name="pytest for test_AlertRules.TestAlertsRules" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="DDNi-Automation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_AlertRules.TestAlertsRules&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_LoginPage.TestLogin" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="DDNi-Automation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_LoginPage.TestLogin&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_ManageUsers.TestManageUsers" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="DDNi-Automation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_ManageUsers.TestManageUsers&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_ManageUsers.TestManageUsers.test_dropDown_User_SelectAll" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="DDNi-Automation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_ManageUsers.TestManageUsers.test_dropDown_User_SelectAll&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_ManageUsers.TestManageUsers.test_dropdown_User_FilterController" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="DDNi-Automation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_ManageUsers.TestManageUsers.test_dropdown_User_FilterController&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest for test_ManageUsers.TestManageUsers" />
+        <item itemvalue="Python tests.pytest for test_LoginPage.TestLogin" />
+        <item itemvalue="Python tests.pytest for test_ManageUsers.TestManageUsers.test_dropdown_User_FilterController" />
+        <item itemvalue="Python tests.pytest for test_ManageUsers.TestManageUsers.test_dropDown_User_SelectAll" />
+        <item itemvalue="Python tests.pytest for test_AlertRules.TestAlertsRules" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a462486-f951-4c9d-a3c9-a8a713e66ee6" name="Changes" comment="" />
+      <created>1642073432158</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642073432158</updated>
+    </task>
+    <task id="LOCAL-00001" summary="function moved to mangeuser page">
+      <created>1643633106925</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643633106925</updated>
+    </task>
+    <task id="LOCAL-00002" summary="manageUsers TestCases Verified">
+      <created>1643640126257</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1643640126257</updated>
+    </task>
+    <task id="LOCAL-00003" summary="login,manageusers,manageproducts changes">
+      <created>1643694453859</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1643694453859</updated>
+    </task>
+    <task id="LOCAL-00004" summary="login,manageusers,manageproducts changes">
+      <created>1643742045166</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1643742045166</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="function moved to mangeuser page" />
+    <MESSAGE value="manageUsers TestCases Verified" />
+    <MESSAGE value="login,manageusers,manageproducts changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="login,manageusers,manageproducts changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testCases/test_ManageUsers.py</url>
+          <line>1115</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testCases/test_ManageUsers.py</url>
+          <line>1092</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
